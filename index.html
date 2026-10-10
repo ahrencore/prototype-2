@@ -193,7 +193,23 @@
  .tutorial-banner{bottom:calc(63px + env(safe-area-inset-bottom,0px))!important;max-height:25dvh;overflow:auto}
 }
 @media(max-width:355px){.stats .pill{font-size:10px;padding:3px}.stats .pill .mi{width:12px}.mebtn{width:50px!important;height:50px!important}.order-pill .por{width:22px;height:22px}.order-pill-name{font-size:10px}}
-</style></head><body>
+</style>
+<style id="v17-mobile-polish">
+.toast{bottom:calc(88px + env(safe-area-inset-bottom,0px))!important;max-width:min(88vw,360px);width:max-content;padding:10px 12px;border-radius:14px;text-align:center;line-height:1.2;z-index:220;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.dg-win{position:fixed;inset:0;display:grid;place-items:center;background:rgba(40,54,24,.2);backdrop-filter:blur(2px);z-index:260;padding:18px}.dg-win-card{width:min(92vw,420px);display:grid;gap:10px;padding:14px;border:2px solid var(--edge);border-radius:18px;background:var(--panel);box-shadow:0 14px 34px rgba(0,0,0,.22)}.dg-win-face{display:grid;place-items:center}.dg-win-face .por{width:74px;height:74px}.dg-win-copy{display:grid;gap:4px;text-align:center}.dg-win-copy small{font-size:11px;font-weight:800;color:var(--soft);letter-spacing:.06em;text-transform:uppercase}.dg-win-copy h3{margin:0;font-family:var(--display);font-size:30px;font-weight:400;line-height:1}.dg-win-copy p{margin:0;font-size:14px;line-height:1.28}.dg-win-reward{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.dg-win-reward span{padding:5px 10px;border:2px solid var(--edge);border-radius:999px;background:var(--tile);font-weight:800}.dg-win-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+@media(max-width:899px){
+  .top{padding-top:2px}
+  .mebtn{width:62px!important;height:62px!important}.mebtn::after{min-width:16px;width:16px;height:16px;font-size:8px;right:-1px;bottom:1px;border-width:1.5px}
+  .stats{gap:5px}.stats .pill{min-height:38px;padding:4px 7px;font-size:11px;border-radius:12px}
+  .orders{min-height:43px}.order-strip{padding:2px 0 4px;gap:6px}.order-pill{padding:2px 7px 2px 2px;border-radius:999px}.order-pill .por{width:28px;height:28px}.order-pill-name{font-size:12px}
+  .order-detail{top:calc(76px + env(safe-area-inset-top,0px));left:10px;right:10px;max-height:min(34dvh,215px);padding:8px;gap:6px;border-radius:16px;overflow:auto}.order-detail-head{grid-template-columns:38px minmax(0,1fr) auto;gap:6px}.order-detail-head .por{width:38px;height:38px}.order-head-copy b{font-size:16px}.order-head-copy small{font-size:9px}.order-close{min-height:26px;padding:0 8px;font-size:11px}.order-detail .say{font-size:11px;line-height:1.15;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.order-detail .reqs{gap:6px}.order-detail .req{flex:0 0 42px;width:42px;font-size:0}.order-detail .mini{width:36px;height:36px}.order-detail .mini .ico{width:29px;height:29px}.order-detail .req span{display:none}.order-sources{gap:3px}.order-sources .label{font-size:10px}.source-row{gap:4px}.src-chip{padding:3px 8px;font-size:10px;border-width:1.5px}.act{grid-template-columns:1fr auto;gap:6px;align-items:center}.rw{display:flex;gap:6px;flex-wrap:wrap}.rw span{padding:4px 8px;border:1.5px solid var(--edge);border-radius:999px;background:var(--panel);font-size:11px;font-weight:800}.btns{gap:5px}.order-detail .btn,.order-detail .btn.sm{min-height:28px;padding:3px 8px;font-size:11px}.order-note{font-size:11px}
+  .play{gap:6px}.boardwrap{padding-top:2px}
+  .mobile-screen-header{position:sticky;top:0;z-index:4;background:linear-gradient(180deg,var(--paper),rgba(242,232,207,.92));backdrop-filter:blur(3px);padding-bottom:5px;margin-bottom:4px}
+  .side #sideBody{padding-top:6px!important}.side #sideBody.divine-active{overflow:hidden!important;display:flex;flex-direction:column}.side #sideBody.divine-active > *{min-width:0}.side #sideBody.divine-active .dg-info{margin:0 0 6px}.side #sideBody.divine-active .dg-game{display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden;gap:6px}.side #sideBody.divine-active .dg-grid-note{font-size:11px;line-height:1.2;margin:0}.side #sideBody.divine-active .dg-board{flex:none}.side #sideBody.divine-active .dg-tray,.side #sideBody.divine-active .dg-controls,.side #sideBody.divine-active .dg-num{flex:none}.side #sideBody.divine-active .dg-trivia-wrap{overflow:auto}
+  .dg-win{padding:12px}.dg-win-card{padding:12px;gap:8px}.dg-win-face .por{width:64px;height:64px}.dg-win-copy h3{font-size:24px}.dg-win-copy p{font-size:13px}.dg-win-actions .btn{min-height:34px}
+}
+</style>
+</head><body>
 <title>Olympus Merge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700;800&family=Marcellus&display=swap">
@@ -580,6 +596,7 @@ button{font:inherit;color:inherit}
   </main>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="dg-win" id="dgWin" hidden><div class="dg-win-card"><div class="dg-win-face" id="dgWinFace"></div><div class="dg-win-copy"><small>Zeus has comments</small><h3 id="dgWinTitle">Level clear!</h3><p id="dgWinMsg"></p><div class="dg-win-reward" id="dgWinReward"></div></div><div class="dg-win-actions"><button class="btn" id="dgWinNext">Next level</button><button class="btn alt" id="dgWinClose">Later</button></div></div></div>
 <div class="card-pop" id="cardPop" hidden aria-hidden="true"></div>
 
 <script>
@@ -1969,7 +1986,33 @@ if(!['home','sudoku','sort','tiles','trivia'].includes(DG.tab))DG.tab='home';if(
 function dgSave(){try{localStorage.setItem(DGKEY,JSON.stringify(DG))}catch(ex){}save()}
 function dgDate(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
 function dgFree(game){return DG.daily[game]!==dgDate()}
-function dgReward(game,coins,pts){S.coins+=coins;S.comp.points+=pts;DG.history[game]=(DG.history[game]||0)+1;DG.recent='Victory! +'+coins+' coins and +'+pts+' Divine Games points.';dgSave();renderStats()}
+var DG_WIN={game:null,next:null};
+var ZEUS_WIN_LINES=['By thunder, you actually did it. I was ready to blame Hermes.','Olympus is screaming. Mostly me. Nicely done.','You cleared that level so hard even Athena looked impressed.','I blinked and you won. Rude, but excellent.','A tremendous display. Someone fetch me a ceremonial snack.','That was absurdly competent. I hate how much I enjoyed it.'];
+function dgWinPlan(game){
+  if(game==='sudoku'&&DG.sudoku)return {game:game,label:'Next puzzle',run:function(){dgNewSudoku(DG.sudoku&&DG.sudoku.mode==='battle',DG.sudoku&&DG.sudoku.difficulty||dgDifficultyChoice);dgSave();renderSide(true)}};
+  if(game==='tiles')return {game:game,label:'Next level',run:function(){dgNewTiles();dgSave();renderSide(true)}};
+  if(game==='sort')return {game:game,label:'Next level',run:function(){dgNewSort();dgSave();renderSide(true)}};
+  return null;
+}
+function showDgWin(plan,title,msg,rewardHtml){
+  var box=$('#dgWin');if(!box)return;DG_WIN=plan||{game:null,next:null};
+  $('#dgWinFace').innerHTML=portrait(idOf('Zeus')||0);
+  $('#dgWinTitle').textContent=title||'Level clear!';
+  $('#dgWinMsg').textContent=msg||pickOf(ZEUS_WIN_LINES);
+  $('#dgWinReward').innerHTML=rewardHtml||'';
+  $('#dgWinNext').textContent=plan&&plan.label?plan.label:'Nice';
+  $('#dgWinNext').hidden=!plan||!plan.run;box.hidden=false;
+}
+function closeDgWin(startNext){
+  var box=$('#dgWin');if(box)box.hidden=true;
+  if(startNext&&DG_WIN&&DG_WIN.run)DG_WIN.run();
+}
+function dgReward(game,coins,pts){
+  var plan=dgWinPlan(game),line=pickOf(ZEUS_WIN_LINES),title='Level clear!';
+  if(game==='sudoku'&&DG.sudoku&&DG.sudoku.mode==='battle'&&coins<=0){title='Round complete';line='Ares is laughing, but Zeus says take the points and charge into the next round.'}
+  S.coins+=coins;S.comp.points+=pts;DG.history[game]=(DG.history[game]||0)+1;DG.recent='Victory! +'+coins+' coins and +'+pts+' Divine Games points.';dgSave();renderStats();
+  if(game!=='trivia')showDgWin(plan,title,line,'<span>'+COIN+coins+'</span><span>+'+pts+' Divine points</span>');
+}
 function dgSpend(game,cost,kind){if(dgFree(game)){DG.daily[game]=dgDate();return true}if(S.coins<cost){DG.recent='Not enough coins — need '+cost+'.';return false}S.coins-=cost;return true}
 function dgCheckSave(game){
  var g=DG[game];if(!g)return;
@@ -2261,6 +2304,7 @@ function renderSide(force){
   if(side==='rank'){
     try{el.innerHTML=sideDivine()}catch(err){console.error('Divine Games view recovered:',err);DG.tab='home';DG.sudoku=null;DG.sort=null;DG.tiles=null;DG.trivia=null;DG.recent='Your mini-game screen was refreshed after an old-save issue. Main-game progress is safe.';dgSave();el.innerHTML=sideDivine()}
   }else el.innerHTML=side==='sites'?sideSite():side==='store'?sideStore():side==='album'?sideAlbum():sideMe();
+  el.classList.toggle('divine-active',side==='rank'&&DG.tab!=='home');
   if(side==='rank')fillNames();
   updateAlbumDots();
 }
@@ -2413,6 +2457,9 @@ document.querySelector('.stabs').addEventListener('click',function(e){
 });
 $('#meBtn').addEventListener('click',function(){view='side';side='me';syncNav();renderSide(true);window.scrollTo(0,0)});
 $('#mobileBack').addEventListener('click',function(){if(DG.tab==='trivia'&&DG.trivia&&!DG.trivia.done)dgTriviaEnd();view='merge';S.orderPeek=-1;save();syncNav();render();});
+$('#dgWinNext').addEventListener('click',function(){closeDgWin(true)});
+$('#dgWinClose').addEventListener('click',function(){closeDgWin(false)});
+$('#dgWin').addEventListener('click',function(e){if(e.target.id==='dgWin')closeDgWin(false)});
 
 
 /* ---------- start ---------- */
