@@ -155,7 +155,45 @@
 }
 @media(max-width:380px){.who-title{max-width:26vw;font-size:10px}.pill{font-size:11px}.tab{font-size:10px}.board{width:min(100%,calc((100dvh - 196px)*.78))!important}.dg-card-grid{grid-template-columns:1fr 1fr}.order-pill-name{font-size:12px}}
 </style>
-</head><body>
+<style id="v16-mobile-repair">
+.mobile-screen-header{display:none}
+@media(max-width:899px){
+ html,body{height:100%;overflow:hidden}
+ .app{height:100dvh;max-height:100dvh;display:flex;flex-direction:column;gap:5px;padding:6px 7px calc(64px + env(safe-area-inset-bottom,0px));overflow:hidden}
+ .top{display:flex;flex:none;align-items:center;justify-content:space-between;gap:5px;min-height:52px}
+ .hdr-id{flex:0 1 auto;gap:5px;min-width:54px}.mebtn{width:58px!important;height:58px!important;flex:none}.mebtn .avw{width:100%;height:100%}
+ .mebtn::after{right:-3px;bottom:-2px;width:19px;min-width:19px;height:19px;font-size:9px;padding:0;box-shadow:0 1px 0 var(--shadow)}
+ .titlebox{display:none}.stats{display:flex;flex:1;flex-wrap:nowrap;min-width:0;justify-content:flex-end;gap:4px}
+ .stats .lvl{display:none!important}.stats .pill{flex:0 1 auto;padding:4px 5px;border-width:1.5px;min-width:0;min-height:35px;border-radius:11px;font-size:11px;gap:3px}
+ .stats .pill .mi{width:15px;height:15px}.stats .pill small{display:none!important}
+ .quick-store{display:none!important}
+ .tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;position:fixed;bottom:0;left:0;right:0;padding:5px 7px calc(5px + env(safe-area-inset-bottom,0px));z-index:120;background:var(--paper)}
+ .tabs .tab{min-height:44px;font-size:11px;padding:4px 1px;border-radius:10px;box-shadow:none}
+ .layout{flex:1;min-height:0;overflow:hidden;display:block}
+ .play{display:flex!important;flex-direction:column;gap:4px;padding:5px;height:100%;min-height:0;overflow:hidden;border-radius:13px}
+ .app[data-view="side"] .play{display:none!important}
+ .orders{flex:0 0 auto;max-height:none!important;overflow:visible;display:block;min-height:49px}
+ .order-strip{gap:5px;overflow-x:auto;padding:4px 3px 5px;scrollbar-width:none}
+ .order-pill{flex:0 0 auto;grid-template-columns:26px auto;column-gap:5px;padding:3px 7px 3px 3px;border-radius:11px;font-size:11px;box-shadow:none}
+ .order-pill .por{width:26px;height:26px}.order-pill-name{font-size:11px}.order-pill-count{display:none}
+ .order-help{display:none}
+ .order-detail{position:absolute;top:calc(66px + env(safe-area-inset-top,0px));left:9px;right:9px;z-index:110;max-height:min(58dvh,420px);overflow-y:auto;box-shadow:0 12px 30px rgba(0,0,0,.24);padding:10px}
+ .boardwrap{flex:1 1 auto;min-height:0;min-width:0;overflow:hidden;display:flex!important;justify-content:center;align-items:center;padding:0}
+ .board{box-sizing:border-box!important;flex:none;width:var(--board-fit-w,100%)!important;height:var(--board-fit-h,auto)!important;max-width:100%!important;max-height:100%!important;aspect-ratio:auto!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-template-rows:repeat(8,minmax(0,1fr))!important;gap:3px!important;padding:4px!important;border-width:2px}
+ .board .slot{min-width:0;min-height:0;width:100%;height:100%;aspect-ratio:auto!important;border-width:1px!important;border-radius:6px}
+ .board .item{inset:1px;border-width:1px;border-radius:5px}.board .item .ico{height:82%;width:82%;margin:0}.board .gen-label{font-size:6px!important;bottom:0!important}
+ .hint,.tools,#gens{display:none!important}
+ .app[data-view="side"] .side{display:flex!important;flex-direction:column;min-height:0;height:100%;gap:5px;padding:0!important;background:transparent;border:none;box-shadow:none}
+ .mobile-screen-header{display:flex;flex:none;align-items:center;justify-content:space-between;min-height:40px;padding:2px 4px;gap:8px;font-family:var(--display);font-size:19px}
+ .mobile-back{font-family:var(--body);font-size:13px;font-weight:800;padding:7px 11px;background:var(--panel);border:2px solid var(--edge);border-radius:10px;color:var(--text)}
+ .side #sideBody{flex:1 1 auto;height:auto!important;min-height:0;overflow-y:auto!important;overscroll-behavior:contain;padding:8px!important;border-radius:12px}
+ .dg-game{width:100%;min-width:0;overflow:visible}.dg-board.sudoku{width:min(100%,350px)!important}.dg-board.tiles-stack{width:min(100%,360px);max-height:none;height:310px}.dg-board.sort-tubes{min-height:190px;width:100%}
+ .dg-tube{min-height:170px}.dg-tray{width:100%;min-width:0}.dg-num.sudoku-faces{grid-template-columns:repeat(5,minmax(0,1fr))}
+ .dg-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.dg-card{min-width:0;padding:7px}.dg-card h3{font-size:17px}.dg-card-art{min-height:70px}.dg-card p{font-size:11px}.dg-badge{white-space:normal}
+ .tutorial-banner{bottom:calc(63px + env(safe-area-inset-bottom,0px))!important;max-height:25dvh;overflow:auto}
+}
+@media(max-width:355px){.stats .pill{font-size:10px;padding:3px}.stats .pill .mi{width:12px}.mebtn{width:50px!important;height:50px!important}.order-pill .por{width:22px;height:22px}.order-pill-name{font-size:10px}}
+</style></head><body>
 <title>Olympus Merge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700;800&family=Marcellus&display=swap">
@@ -508,7 +546,7 @@ button{font:inherit;color:inherit}
       <div class="pill" id="gems"><svg class="mi" viewBox="0 0 20 20"><path class="s" style="fill:var(--teal)" d="M10 2L17 8L10 18L3 8Z"/><path class="l" d="M3 8H17M7 8L10 2L13 8M7 8L10 18L13 8" style="stroke-width:1.1"/></svg><span id="gemv">0</span></div>
       <div class="pill" id="energy"><svg class="mi" viewBox="0 0 20 20"><path class="s gold" d="M11 1 L4 11 H9 L8 19 L16 8 H11 Z"/></svg><span id="energyv">100/100</span><small id="energyt"></small></div>
     </div>
-    <button class="quick-store" id="storeQuick" aria-label="Open store">Store</button>
+    
   </header>
 
   <nav class="tabs" aria-label="Views">
@@ -529,6 +567,7 @@ button{font:inherit;color:inherit}
       <div class="gens" id="gens"></div>
     </section>
     <section class="panel side" aria-label="More">
+      <div class="mobile-screen-header"><button type="button" id="mobileBack" class="mobile-back">← Back to Merge</button><span id="mobileScreenTitle">Olympus</span></div>
       <div class="stabs" role="group" aria-label="Side views">
         <button class="stab" data-side="sites" aria-pressed="true">Sites</button>
         <button class="stab" data-side="store" aria-pressed="false">Store</button>
@@ -1581,7 +1620,7 @@ function setAv(id){if(!ownsAv(id)){toast('Find that card in the album to use thi
 function setFrame(id){if(!ownsFrame(id)){var fr=FR[id];toast(fr&&fr.lvl?'That frame unlocks at level '+fr.lvl+'.':'Earn it: '+(fr?fr.how:'')+'.');return}S.profile.frame=id;save();pushScore(true);render();renderSide(true)}
 function sideMe(){
   var own=CARDS.filter(function(c){return S.cards[c.id]}).length,sets=Object.keys(S.sets).length,h='',k;
-  h+='<h2 class="h">Your profile</h2>';
+  h+='<h2 class="h">Your profile</h2><button class="btn alt sm" id="profileStore" type="button">Open Store</button>';
   h+='<div class="prof">'+avatar(S.profile.av,S.profile.frame)+'<div style="display:grid;gap:6px;min-width:0"><b style="font-family:var(--display);font-weight:400;font-size:20px;overflow-wrap:anywhere">'+esc(myName())+'</b><span class="sub" style="margin:0">'+esc(titleFor(S.level))+' · level '+S.level+'</span></div></div>';
   h+='<form class="namerow" id="nameForm"><label class="label" for="nameIn" style="flex:none">Name</label><input id="nameIn" maxlength="16" autocomplete="off" value="'+esc(S.profile.name)+'" placeholder="Your player name"><button class="btn sm" type="submit" id="nameSaveBtn">Save</button></form>';
   h+='<div class="stats-row"><div class="stat"><b>'+S.stats.orders+'</b><span>Orders delivered</span></div><div class="stat"><b>'+S.stats.merges+'</b><span>Merges</span></div><div class="stat"><b>'+own+'/'+CARDS.length+'</b><span>Cards</span></div><div class="stat"><b>'+sets+'/'+SETS.length+'</b><span>Sets done</span></div></div>';
@@ -1735,7 +1774,7 @@ function renderOrders(){
       h+='<button class="order-pill'+(i===0?' current':'')+(S.orderPeek===i?' active':'')+'" data-order-peek="'+i+'" aria-expanded="'+(S.orderPeek===i?'true':'false')+'">'+portrait(q.g)+'<span class="order-pill-name">'+GODS[q.g].n+'</span><span class="order-pill-count">'+left+'/'+q.items.length+'</span></button>';
     }
     h+='</div>';
-    if(S.orderPeek<0){h+='<div class="order-help">Tap an order to read the dialogue, see the reward, and check which generator makes the item.</div>';$('#orders').innerHTML=h;orderFx=false;return}
+    if(S.orderPeek<0){h+='<div class="order-help">Tap an order to read the dialogue, see the reward, and check which generator makes the item.</div>';$('#orders').innerHTML=h;orderFx=false;requestAnimationFrame(fitMobileBoard);return}
     o=S.orders[S.orderPeek];g=GODS[o.g];rw=orderReward(o);pend=o.items.filter(function(it){return !it.done});
     var isActive=S.orderPeek===0, sources=orderSourceNames(o), tag2=o.kind==='divine'?'<span class="tag div">Divine request</span>':(o.kind==='combo'?'<span class="tag">Combo order</span>':'');
     h+='<div class="order-detail'+(o.kind==='divine'?' divine':'')+'">';
@@ -1752,7 +1791,7 @@ function renderOrders(){
       h+='<div class="order-note">This one will move up after the active order is finished.</div>';
     }
     h+='</div></div>';
-    $('#orders').innerHTML=h;orderFx=false;return;
+    $('#orders').innerHTML=h;orderFx=false;requestAnimationFrame(fitMobileBoard);return;
   }
   var tag=o.kind==='divine'?'<span class="tag div">Divine request</span>':(o.kind==='combo'?'<span class="tag">Combo order</span>':'');
   h+='<div class="order-active'+(o.kind==='divine'?' divine':'')+(orderFx?' enter':'')+'" data-drop="order">';
@@ -2228,6 +2267,7 @@ function renderSide(force){
 function render(){
   placeNewGenerators();renderStats();renderOrders();renderBoard();renderOnboarding();
   if(gensSig!==String(S.level))renderGens();
+  requestAnimationFrame(fitMobileBoard);
   renderSide();updateAlbumDots();renderCardPopup();
 }
 
@@ -2320,6 +2360,7 @@ $('#sideBody').addEventListener('change',function(e){if(e.target.matches('[data-
 $('#sideBody').addEventListener('click',function(e){
   if(dgClick(e))return;
   var b;
+  if(e.target.closest('#profileStore')){side='store';syncNav();renderSide(true);return}
   if(e.target.closest('#nameSaveBtn')){e.preventDefault();var ni=$('#nameIn');if(ni)saveName(ni.value)}
   else if((b=e.target.closest('[data-site]')))upgrade(b.dataset.site);
   else if((b=e.target.closest('[data-buy]')))buy(b.dataset.buy);
@@ -2334,8 +2375,29 @@ $('#cardPop').addEventListener('click',function(e){if(e.target.id==='cardPopOk')
 $('#sideBody').addEventListener('submit',function(e){
   if(e.target.id==='nameForm'){e.preventDefault();saveName($('#nameIn').value)}
 });
+
+function fitMobileBoard(){
+ if(!window.matchMedia||!window.matchMedia('(max-width:899px)').matches)return;
+ var wrap=document.querySelector('.boardwrap'),b=document.getElementById('board');
+ if(!wrap||!b||!wrap.clientWidth||!wrap.clientHeight)return;
+ var cs=getComputedStyle(b),gap=parseFloat(cs.columnGap)||3,pad=2*(parseFloat(cs.paddingLeft)||4),border=2*(parseFloat(cs.borderLeftWidth)||2);
+ var availableWidth=wrap.clientWidth-2,availableHeight=wrap.clientHeight-2;
+ var cols=6,rows=8;
+ // Exactly fit 6x8 square board cells within the actual remaining viewport.
+ var cell=Math.min((availableWidth-pad-border-gap*(cols-1))/cols,(availableHeight-pad-border-gap*(rows-1))/rows);
+ if(cell<=0)return;
+ var width=Math.floor(cell*cols+pad+border+gap*(cols-1));
+ var height=Math.floor(cell*rows+pad+border+gap*(rows-1));
+ b.style.setProperty('--board-fit-w',width+'px');
+ b.style.setProperty('--board-fit-h',height+'px');
+}
+window.addEventListener('resize',fitMobileBoard);
+if(window.visualViewport)window.visualViewport.addEventListener('resize',fitMobileBoard);
+
 function syncNav(){
   var app=$('#app');app.dataset.view=view==='merge'?'merge':'side';
+  var mh=$('#mobileScreenTitle');if(mh)mh.textContent=side==='rank'?'Divine Games':side==='album'?'Albums':side==='store'?'Store':side==='sites'?'Sites':'Profile';
+  requestAnimationFrame(fitMobileBoard);
   document.querySelectorAll('.tab').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.nav===(view==='merge'?'merge':side)))});
   document.querySelectorAll('.stab').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.side===side))});
   updateAlbumDots();
@@ -2350,11 +2412,12 @@ document.querySelector('.stabs').addEventListener('click',function(e){
   if(b.dataset.side!=='rank'&&DG.tab==='trivia'&&DG.trivia&&!DG.trivia.done)dgTriviaEnd();side=b.dataset.side;syncNav();renderSide(true);
 });
 $('#meBtn').addEventListener('click',function(){view='side';side='me';syncNav();renderSide(true);window.scrollTo(0,0)});
-$('#storeQuick').addEventListener('click',function(){if(DG.tab==='trivia'&&DG.trivia&&!DG.trivia.done)dgTriviaEnd();view='side';side='store';syncNav();renderSide(true);window.scrollTo(0,0)});
+$('#mobileBack').addEventListener('click',function(){if(DG.tab==='trivia'&&DG.trivia&&!DG.trivia.done)dgTriviaEnd();view='merge';S.orderPeek=-1;save();syncNav();render();});
+
 
 /* ---------- start ---------- */
 S=load();
-tickEnergy();rollCycle();ensureTutorialOrder();fillOrders();save();buildSlots();
+tickEnergy();rollCycle();ensureTutorialOrder();fillOrders();S.orderPeek=-1;save();buildSlots();
 renderGens();syncNav();render();renderSide(true);
 $('#hint').textContent='Drag matching items together to merge them. Or tap an item, then another slot.';
 setInterval(function(){
