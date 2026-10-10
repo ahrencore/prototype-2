@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+<!doctype html><html data-theme="light"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
 /* v5 responsive app viewport and collectible album covers */
 .board{grid-template-columns:repeat(6,minmax(0,1fr))}
 .album-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -125,55 +125,35 @@
 @media(max-width:899px){.dg-trivia-q{font-size:22px}}
 
 </style>
-<style id="v14-mobile-layout">
+<style id="v15-mobile-layout">
 .quick-store{display:none}
+.order-strip{display:flex;gap:8px;overflow:auto;padding-bottom:2px}
+.order-pill{display:grid;grid-template-columns:34px auto auto;align-items:center;gap:7px;padding:6px 10px 6px 6px;border:2px solid var(--edge);border-radius:999px;background:var(--panel);color:var(--text);font-weight:800;white-space:nowrap;box-shadow:0 2px 0 var(--shadow);cursor:pointer}
+.order-pill .por{width:34px;height:34px}.order-pill-name{font-size:13px}.order-pill-count{font-size:11px;color:var(--soft)}.order-pill.current{background:color-mix(in srgb,var(--gold) 18%,var(--panel))}.order-pill.active{outline:3px solid var(--gold);outline-offset:1px}
+.order-detail{display:grid;gap:8px;padding:10px;border:2px solid var(--line);border-radius:14px;background:var(--tile);color:#283618;box-shadow:0 3px 0 var(--line)}
+.order-detail-head{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:8px;align-items:center}.order-detail-head .por{width:46px;height:46px}.order-head-copy{display:grid;gap:1px}.order-head-copy b{font-family:var(--display);font-size:21px;font-weight:400;line-height:1}.order-head-copy small{font-size:11px;color:#5d6a47;font-weight:800;letter-spacing:.05em;text-transform:uppercase}.order-close{padding:0 10px;min-height:30px;border:2px solid var(--edge);border-radius:999px;background:var(--panel);font-weight:800;cursor:pointer}
+.order-sources{display:grid;gap:4px}.source-row{display:flex;gap:6px;flex-wrap:wrap}.src-chip{padding:4px 8px;border:2px solid var(--edge);border-radius:999px;background:var(--panel);font-size:11px;font-weight:800}
+.order-help{font-size:12px;color:var(--soft);padding:1px 2px}.order-note{font-size:12px;color:var(--soft);font-weight:700}
 @media(max-width:899px){
   html,body{height:100%;overflow:hidden}
-  .app{height:100dvh;max-height:100dvh;padding:calc(env(safe-area-inset-top,0px) + 6px) 8px calc(74px + env(safe-area-inset-bottom,0px));gap:8px;overflow:hidden}
-  .top{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"me stats store";align-items:start;gap:8px}
-  .hdr-id{grid-area:me;display:flex;align-items:center;gap:8px;min-width:0}
-  .mebtn{width:46px;height:46px;border-radius:16px;position:relative;box-shadow:0 3px 0 var(--shadow)}
-  .mebtn::after{content:attr(data-level);position:absolute;right:-5px;bottom:-5px;min-width:22px;height:22px;padding:0 4px;border-radius:999px;background:var(--gold);border:2px solid var(--panel);display:grid;place-items:center;font-size:10px;font-weight:900;color:#283618;line-height:1}
-  .brand{display:none}
-  .titlebox{display:grid;gap:2px;min-width:0;padding-top:3px}
-  .who-title{display:block!important;max-width:22vw;font-size:11px;line-height:1.1}
-  .stats{grid-area:stats;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;align-items:stretch;min-width:0}
-  .lvl{display:none}
-  .pill{justify-content:center;min-height:44px;padding:6px;border-radius:14px;font-size:12px;gap:4px}
-  .pill small{display:none}
-  .quick-store{grid-area:store;display:grid;place-items:center;align-self:stretch;min-height:44px;padding:0 12px;border:2px solid var(--edge);border-radius:14px;background:var(--panel);font-weight:800;box-shadow:0 3px 0 var(--shadow)}
-  .tabs{display:grid!important;position:fixed;left:0;right:0;bottom:0;z-index:120;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(242,232,207,0),var(--paper) 24%,var(--paper) 100%)}
-  .tab[data-nav="store"],.tab[data-nav="me"]{display:none!important}
-  .tab{min-height:52px;display:grid;place-items:center;padding:6px 4px;border-radius:14px;font-size:11px;line-height:1.1;letter-spacing:0;text-transform:none;box-shadow:0 3px 0 var(--shadow)}
+  body{background-color:var(--paper)!important;color:var(--text)!important}
+  .app{height:100dvh;max-height:100dvh;display:flex;flex-direction:column;padding:8px 10px calc(78px + env(safe-area-inset-bottom,0px));gap:8px;overflow:hidden}
+  .top{flex:none;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px}.hdr-id{gap:8px;min-width:0}.brand{display:none}.titlebox{min-width:0}.who-title{display:block;max-width:30vw;font-size:11px;line-height:1.15}
+  .mebtn{width:52px;height:52px;position:relative}.mebtn::after{content:attr(data-level);position:absolute;right:-4px;bottom:-4px;min-width:24px;height:24px;padding:0 5px;border-radius:999px;background:var(--gold);border:2px solid var(--panel);display:grid;place-items:center;color:#283618;font-size:11px;font-weight:900;box-shadow:0 2px 0 var(--shadow)}
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;min-width:0}.lvl{display:none}.pill{justify-content:center;min-height:42px;padding:6px 4px;font-size:12px;border-width:2px}.pill small{display:none}.pill .mi{width:14px;height:14px}
+  .quick-store{display:grid;place-items:center;min-height:42px;padding:0 12px;border:2px solid var(--edge);border-radius:14px;background:var(--panel);font-weight:800;box-shadow:0 2px 0 var(--shadow)}
+  .tabs{display:grid;position:fixed;left:0;right:0;bottom:0;z-index:120;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(242,232,207,0),rgba(242,232,207,.96) 24%,var(--paper) 52%)}
+  .tab[data-nav="store"],.tab[data-nav="me"]{display:none!important}.tab{min-height:50px;padding:6px 4px;border-radius:14px;font-size:11px;letter-spacing:.01em;text-transform:none;display:grid;place-items:center;box-shadow:0 2px 0 var(--shadow)}
   .tab[aria-pressed="true"]{background:var(--gold);color:#283618}
-  .layout{flex:1;min-height:0;display:block;overflow:hidden}
-  .panel{padding:10px;border-radius:16px;gap:10px}
-  .play,.side{height:100%;min-height:0;overflow:hidden}
-  .app[data-view="merge"] .play{display:flex}
-  .app[data-view="side"] .side{display:grid!important;grid-template-rows:1fr;padding:0;background:transparent;border:none;box-shadow:none}
-  .side #sideBody{height:100%;overflow:auto;padding:10px;background:var(--panel);border:2px solid var(--edge);border-radius:16px;box-shadow:3px 3px 0 var(--shadow)}
-  .stabs{display:none!important}
-  .orders{display:grid;gap:6px;max-height:min(25dvh,175px);overflow:auto}
-  .order-active{grid-template-columns:52px minmax(0,1fr);gap:6px 8px;padding:8px;border-radius:16px}
-  .who{font-size:11px}.who .por{width:46px;height:46px}
-  .say{font-size:12px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .reqs{justify-content:flex-start;flex-wrap:nowrap;overflow:auto;padding-bottom:2px}
-  .req{flex:0 0 56px;width:56px;font-size:9px}
-  .mini{width:40px;height:40px}.mini .ico{width:32px;height:32px}
-  .act{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:end}.rw{font-size:11px}
-  .btns{display:flex;gap:4px}.btn{min-height:32px;border-radius:12px}
-  .next{display:flex!important;gap:6px;overflow:auto;flex-wrap:nowrap}.chip{flex:0 0 auto;padding:4px 8px 4px 4px;font-size:11px}.chip .por{width:24px;height:24px}.chip .ico{width:18px;height:18px}
-  .boardwrap{padding-top:2px}.board{width:min(100%,calc((100dvh - 292px)*.76))!important;max-width:100%;border-radius:16px}
-  .hint,.tools,#gens{display:none!important}
-  .album-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.store-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .dg-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.dg-card{padding:10px;gap:6px}.dg-card h3{font-size:18px}.dg-card p{font-size:12px}.dg-card-art{min-height:84px}
-  .dg-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.dg-tab{font-size:11px;padding:8px 4px}
-  .dg-board.tiles{width:min(100%,340px)}.dg-board.sort{width:min(100%,320px)}.dg-board.sudoku{width:min(100%,356px)}
-  .dg-leader-row{grid-template-columns:1fr 1fr}.leader .row{grid-template-columns:44px minmax(0,1fr) auto}
+  .layout{flex:1;min-height:0;display:block;overflow:hidden}.play,.side{height:100%;min-height:0;overflow:hidden}
+  .play{padding:8px;gap:8px;border-radius:18px}.orders{flex:none;display:grid;gap:8px;max-height:min(26dvh,190px);overflow:auto}.say{font-size:13px;line-height:1.22;margin:0}.reqs{gap:7px;justify-content:flex-start;flex-wrap:nowrap;overflow:auto;padding-bottom:2px}.req{flex:0 0 62px;width:62px;font-size:10px}.mini{width:48px;height:48px}.mini .ico{width:40px;height:40px}.act{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}.rw{font-size:12px}.btn{min-height:34px;padding:4px 9px;font-size:13px}.btn.sm{min-height:31px;padding:4px 8px;font-size:12px}.btns{gap:6px}.next{display:none}
+  .boardwrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}.board{width:min(100%,calc((100dvh - 205px)*.78))!important;max-height:100%;aspect-ratio:6/8;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));gap:4px;padding:6px;border-radius:16px}.slot{border-radius:9px}.item{inset:2px;border-radius:9px}.item .ico{width:82%;height:82%;margin-bottom:5px}.slot.generator-cell .gen-label{font-size:7px}
+  .hint,.tools,#gens{display:none!important}.tutorial-banner{top:auto!important;bottom:calc(70px + env(safe-area-inset-bottom,0px));width:min(94vw,470px);max-height:30dvh;overflow:auto}.login-banner{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:90;width:min(92vw,440px);box-shadow:0 5px 15px var(--shadow)}
+  .stabs{display:none!important}.side{padding:0!important;background:transparent!important;border:none!important;box-shadow:none!important}.app[data-view="merge"] .side{display:none}.app[data-view="side"] .play{display:none}.app[data-view="side"] .side{display:block!important}.side #sideBody{height:100%;overflow:auto;background:var(--panel);border:2px solid var(--edge);border-radius:18px;padding:12px;box-shadow:3px 3px 0 var(--shadow)}
+  .album-grid,.store-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prof{grid-template-columns:82px minmax(0,1fr)}.prof .avw{width:82px}
+  .dg-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-card{padding:10px}.dg-card h3{font-size:18px}.dg-card p{font-size:12px}.dg-card-art{min-height:84px}.dg-foot{gap:6px}.dg-leader-row{grid-template-columns:1fr}.dg-board.tiles{width:min(100%,340px)}.dg-board.sort{width:min(100%,320px)}
 }
-@media(max-width:380px){
-  .who-title{max-width:18vw;font-size:10px}.pill{font-size:11px;padding:6px 4px}.tab{font-size:10px}.board{width:min(100%,calc((100dvh - 285px)*.76))!important}.dg-card-grid{grid-template-columns:1fr 1fr!important;gap:8px}.dg-card h3{font-size:16px}.dg-card-art{min-height:76px}
-}
+@media(max-width:380px){.who-title{max-width:26vw;font-size:10px}.pill{font-size:11px}.tab{font-size:10px}.board{width:min(100%,calc((100dvh - 196px)*.78))!important}.dg-card-grid{grid-template-columns:1fr 1fr}.order-pill-name{font-size:12px}}
 </style>
 </head><body>
 <title>Olympus Merge</title>
@@ -528,7 +508,7 @@ button{font:inherit;color:inherit}
       <div class="pill" id="gems"><svg class="mi" viewBox="0 0 20 20"><path class="s" style="fill:var(--teal)" d="M10 2L17 8L10 18L3 8Z"/><path class="l" d="M3 8H17M7 8L10 2L13 8M7 8L10 18L13 8" style="stroke-width:1.1"/></svg><span id="gemv">0</span></div>
       <div class="pill" id="energy"><svg class="mi" viewBox="0 0 20 20"><path class="s gold" d="M11 1 L4 11 H9 L8 19 L16 8 H11 Z"/></svg><span id="energyv">100/100</span><small id="energyt"></small></div>
     </div>
-    <button class="quick-store" id="storeQuick" aria-label="Open the store">Store</button>
+    <button class="quick-store" id="storeQuick" aria-label="Open store">Store</button>
   </header>
 
   <nav class="tabs" aria-label="Views">
@@ -1337,7 +1317,7 @@ function fresh(){
   SITES.forEach(function(s){sites[s.id]=0});
   return {coins:30,gems:0,xp:0,level:1,energy:ENERGY_MAX,eTs:Date.now(),board:b,orders:[],sites:sites,done:0,uid:10,
     cards:{},sets:{},dailyKey:'',login:{last:'',streak:0},tutorial:0,albumOpen:-1,newCards:[],albumNews:{},profile:{name:'',av:'g0',frame:'plain'},frames:{},stats:{orders:0,merges:0},
-    comp:{cycle:cycleNow(),points:0,lastCycle:null,lastPoints:0,claimed:-999}};
+    comp:{cycle:cycleNow(),points:0,lastCycle:null,lastPoints:0,claimed:-999},orderPeek:-1};
 }
 function validItem(it){return it&&CH[it.c]&&it.t>=1&&it.t<=MAXT}
 function load(){
@@ -1345,7 +1325,7 @@ function load(){
     var raw=localStorage.getItem(KEY);
     if(raw){var d=JSON.parse(raw);
       if(d&&Array.isArray(d.board)&&BOARD_SIZES.indexOf(d.board.length)>=0&&Array.isArray(d.orders)&&d.sites&&typeof d.coins==='number'&&typeof d.energy==='number'){
-        var fr=fresh();['gems','cards','sets','dailyKey','login','tutorial','albumOpen','newCards','albumNews','comp','profile','frames','stats'].forEach(function(k){if(d[k]===undefined)d[k]=fr[k]});
+        var fr=fresh();['gems','cards','sets','dailyKey','login','tutorial','albumOpen','newCards','albumNews','comp','profile','frames','stats','orderPeek'].forEach(function(k){if(d[k]===undefined)d[k]=fr[k]});
         SITES.forEach(function(s){if(typeof d.sites[s.id]!=='number')d.sites[s.id]=0});
         d.board=d.board.map(function(x){return x&&x.gen&&CH[x.gen]?x:(validItem(x)?x:null)});
         if(d.board.length<48){while(d.board.length<48)d.board.push(null);['olive','music','nectar'].forEach(function(k){if(!d.board.some(function(x){return x&&x.gen===k})){var idx=d.board.findIndex(function(x){return x===null});if(idx>=0)d.board[idx]={gen:k,id:d.uid++}}})}
@@ -1357,6 +1337,7 @@ function load(){
         if(!d.albumNews||typeof d.albumNews!=='object')d.albumNews={};
         if(!d.albumNewsMigrated){(d.newCards||[]).forEach(function(id){SETS.forEach(function(si,i){if(si.ids.indexOf(id)>=0){var k=String(i);if(!Array.isArray(d.albumNews[k]))d.albumNews[k]=[];if(d.albumNews[k].indexOf(id)<0)d.albumNews[k].push(id)}})});d.albumNewsMigrated=true;}
         d.stats.orders=Math.max(d.stats.orders||0,d.done||0);
+        if(typeof d.orderPeek!=='number')d.orderPeek=-1;
         return d}}
   }catch(e){}
   return fresh();
@@ -1519,7 +1500,7 @@ function gainXp(x){
 function finishOrder(){
   if(S.tutorial===3&&isTutorialOrder(S.orders[0]))tutorialAction('order');var o=S.orders[0],rw=orderReward(o),g=GODS[o.g],lv=S.level,card=null;
   S.coins+=rw.coins;S.comp.points+=rw.pts;S.stats.orders++;
-  S.orders.shift();fillOrders();S.done++;orderFx=true;
+  S.orders.shift();fillOrders();S.done++;orderFx=true;S.orderPeek=-1;
   if(o.kind==='divine'||Math.random()<.22)card=giveCard(o.kind==='divine');
   gainXp(rw.xp);
   if(S.level===lv)toast(pickOf(g.thx)+' +'+rw.coins+' coins.'+(card?' '+cardMsg(card):''));
@@ -1545,7 +1526,7 @@ function offer(i){
 function swapOrder(){
   if(S.coins<10){toast('A new customer costs 10 coins.');return}
   var g=GODS[S.orders[0].g].n;
-  S.coins-=10;S.orders.shift();S.orders.unshift(newOrder());orderFx=true;
+  S.coins-=10;S.orders.shift();S.orders.unshift(newOrder());orderFx=true;S.orderPeek=-1;
   toast(pickOf(SWAPS).replace('{n}',g));save();render();
 }
 function upgrade(id){
@@ -1727,7 +1708,8 @@ function renderStats(){
   if(shownCoins!==null&&shownCoins!==S.coins){var p=$('#coins');p.classList.remove('bump');void p.offsetWidth;p.classList.add('bump')}
   shownCoins=S.coins;
   var sg=S.profile.av+'|'+S.profile.frame;
-  if(sg!==meSig){meSig=sg;$('#meBtn').innerHTML=avatar(S.profile.av,S.profile.frame)}$('#meBtn').setAttribute('data-level',S.level)
+  if(sg!==meSig){meSig=sg;$('#meBtn').innerHTML=avatar(S.profile.av,S.profile.frame)}
+  $('#meBtn').setAttribute('data-level',S.level);
   $('#whoTitle').textContent=(S.profile.name?S.profile.name+', ':'')+titleFor(S.level);
   updateEnergyUI();
 }
@@ -1738,8 +1720,40 @@ function updateEnergyUI(){
   var b=document.querySelectorAll('.gen:not(.locked)'),i;
   for(i=0;i<b.length;i++)b[i].disabled=S.energy<1;
 }
+
+function mobileLayout(){return window.matchMedia&&window.matchMedia('(max-width: 899px)').matches}
+function uniq(a){return a.filter(function(v,i){return a.indexOf(v)===i})}
+function orderSourceNames(o){return uniq(o.items.map(function(it){return CH[it.c].name}))}
 function renderOrders(){
   var o=S.orders[0],g=GODS[o.g],rw=orderReward(o),m=matchList(),pend=o.items.filter(function(it){return !it.done}),h='',i;
+  if(mobileLayout()){
+    if(typeof S.orderPeek!=='number')S.orderPeek=-1;
+    if(S.orderPeek>=S.orders.length)S.orderPeek=-1;
+    h+='<div class="order-strip">';
+    for(i=0;i<S.orders.length;i++){
+      var q=S.orders[i],left=q.items.filter(function(it){return !it.done}).length;
+      h+='<button class="order-pill'+(i===0?' current':'')+(S.orderPeek===i?' active':'')+'" data-order-peek="'+i+'" aria-expanded="'+(S.orderPeek===i?'true':'false')+'">'+portrait(q.g)+'<span class="order-pill-name">'+GODS[q.g].n+'</span><span class="order-pill-count">'+left+'/'+q.items.length+'</span></button>';
+    }
+    h+='</div>';
+    if(S.orderPeek<0){h+='<div class="order-help">Tap an order to read the dialogue, see the reward, and check which generator makes the item.</div>';$('#orders').innerHTML=h;orderFx=false;return}
+    o=S.orders[S.orderPeek];g=GODS[o.g];rw=orderReward(o);pend=o.items.filter(function(it){return !it.done});
+    var isActive=S.orderPeek===0, sources=orderSourceNames(o), tag2=o.kind==='divine'?'<span class="tag div">Divine request</span>':(o.kind==='combo'?'<span class="tag">Combo order</span>':'');
+    h+='<div class="order-detail'+(o.kind==='divine'?' divine':'')+'">';
+    h+='<div class="order-detail-head"><div>'+portrait(o.g)+'</div><div class="order-head-copy"><b>'+g.n+'</b><small>'+(isActive?'Active order':'Queued order')+'</small></div><button class="order-close" data-order-close="1">Close</button></div>';
+    h+='<p class="say">'+(tag2?tag2+' ':'')+g.say[o.l].replace('{i}',listNames(pend.length?pend:o.items))+'</p>';
+    h+='<div class="reqs">';
+    o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+icon(it.c,it.t)+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
+    h+='</div>';
+    h+='<div class="order-sources"><span class="label">Generator</span><div class="source-row">'+sources.map(function(n){return '<span class="src-chip">'+esc(n)+'</span>'}).join('')+'</div></div>';
+    h+='<div class="act"><div class="rw"><span>'+COIN+rw.coins+'</span><span class="xp">+'+rw.xp+' XP</span></div>';
+    if(isActive){
+      h+='<div class="btns"><button class="btn alt sm" id="swap"'+(S.coins<10||S.tutorial<4?' disabled':'')+' aria-label="Swap this customer for 10 coins">Swap '+COIN+'10</button><button class="btn" id="deliver"'+(m.length?'':' disabled')+'>'+(m.length?'Deliver'+(m.length>1?' '+m.length:''):'Build it first')+'</button></div>';
+    }else{
+      h+='<div class="order-note">This one will move up after the active order is finished.</div>';
+    }
+    h+='</div></div>';
+    $('#orders').innerHTML=h;orderFx=false;return;
+  }
   var tag=o.kind==='divine'?'<span class="tag div">Divine request</span>':(o.kind==='combo'?'<span class="tag">Combo order</span>':'');
   h+='<div class="order-active'+(o.kind==='divine'?' divine':'')+(orderFx?' enter':'')+'" data-drop="order">';
   h+='<div class="who">'+portrait(o.g)+'<span>'+g.n+'</span></div>';
@@ -1751,7 +1765,7 @@ function renderOrders(){
   h+='<div class="btns"><button class="btn alt sm" id="swap"'+(S.coins<10||S.tutorial<4?' disabled':'')+' aria-label="Swap this customer for 10 coins">Swap '+COIN+'10</button>';
   h+='<button class="btn" id="deliver"'+(m.length?'':' disabled')+'>'+(m.length?'Deliver'+(m.length>1?' '+m.length:''):'Build it first')+'</button></div></div></div>';
   h+='<div class="next"><span class="label">Up next</span>';
-  for(i=1;i<S.orders.length;i++){var q=S.orders[i];h+='<span class="chip">'+portrait(q.g)+GODS[q.g].n+q.items.map(function(it){return icon(it.c,it.t)}).join('')+'</span>'}
+  for(i=1;i<S.orders.length;i++){var q2=S.orders[i];h+='<span class="chip">'+portrait(q2.g)+GODS[q2.g].n+q2.items.map(function(it){return icon(it.c,it.t)}).join('')+'</span>'}
   h+='</div>';
   $('#orders').innerHTML=h;orderFx=false;
 }
@@ -2296,6 +2310,9 @@ $('#tutorialBanner').addEventListener('click',function(e){if(e.target.id==='tuto
 $('#loginBanner').addEventListener('click',function(e){if(e.target.id==='claimLogin')claimLogin()});
 $('#tools').addEventListener('click',function(e){if(e.target.closest('#grow'))growBoard()});
 $('#orders').addEventListener('click',function(e){
+  var p=e.target.closest('[data-order-peek]');
+  if(p){var idx=+p.dataset.orderPeek;S.orderPeek=S.orderPeek===idx?-1:idx;save();renderOrders();return}
+  if(e.target.closest('[data-order-close]')){S.orderPeek=-1;save();renderOrders();return}
   if(e.target.closest('#deliver')){var m=matchList();if(m.length)applyDelivery(m)}
   else if(e.target.closest('#swap'))swapOrder();
 });
