@@ -624,6 +624,21 @@ button{font:inherit;color:inherit}
 
 .who-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
 </style>
+<style id="v20-single-order-fix">
+@media(max-width:899px){
+.app[data-view="merge"] .play{display:flex!important;flex-direction:column!important;gap:5px!important;min-height:0!important;overflow:hidden!important;position:relative!important;padding:7px!important}
+.app[data-view="merge"] #orders{grid-column:auto!important;grid-row:auto!important;display:block!important;position:relative!important;flex:0 0 auto!important;width:100%!important;max-height:none!important;min-height:0!important;padding:0!important;overflow:visible!important;z-index:1!important}
+.app[data-view="merge"] .boardwrap{grid-column:auto!important;grid-row:auto!important;flex:1 1 0!important;min-height:0!important;width:100%!important;overflow:hidden!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.app[data-view="merge"] .board{max-height:100%!important}
+.single-mobile-order{display:grid;gap:4px;padding:7px 9px;border:2px solid var(--edge);border-radius:14px;background:var(--panel);box-shadow:0 2px 0 var(--shadow);max-height:min(185px,28dvh);overflow:hidden;color:var(--text)}
+.smo-person{display:flex;align-items:center;gap:7px;min-height:32px}.smo-person>.por{width:34px!important;height:34px!important;flex:none}.smo-identity{display:grid;gap:0;min-width:0;flex:1}.smo-identity b{font-family:var(--display);font-size:17px;line-height:1}.smo-identity small{font-size:8px;font-weight:800;color:var(--soft);letter-spacing:.05em}.smo-pay{display:flex;align-items:center;gap:5px;white-space:nowrap}.smo-pay strong{font-size:11px}.smo-pay small{font-size:10px;color:var(--soft);font-weight:800}
+.smo-line{font-size:11px;line-height:1.15;margin:0;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.smo-bottom{display:flex;align-items:center;justify-content:space-between;gap:7px;min-height:35px}.smo-items{display:flex;gap:5px;align-items:center;min-width:0;flex:1;overflow:hidden}.smo-item{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;background:var(--tile);border:1.5px solid var(--edge);border-radius:9px;position:relative}.smo-item .ico{width:30px;height:30px}.smo-item.done{opacity:.55}.smo-actions{display:flex;gap:5px;flex:none}.smo-actions .btn,.smo-actions .btn.sm{min-height:30px!important;padding:4px 7px!important;font-size:11px!important}
+.smo-source{font-size:9px;line-height:1.2;color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.smo-source b{color:var(--text);font-weight:800}
+}
+@media(max-width:370px){.single-mobile-order{padding:5px 7px;gap:3px}.smo-line{font-size:10px}.smo-item{width:29px;height:29px;flex-basis:29px}.smo-item .ico{width:26px;height:26px}.smo-identity b{font-size:15px}.smo-pay{gap:3px}}
+</style>
+
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
@@ -1876,31 +1891,15 @@ var orderStoryOpen=false;
 function renderOrders(){
   var o=S.orders[0],g=GODS[o.g],rw=orderReward(o),m=matchList(),pend=o.items.filter(function(it){return !it.done}),h='',i;
   if(mobileLayout()){
-    if(typeof S.orderPeek!=='number')S.orderPeek=-1;
-    if(S.orderPeek>=S.orders.length)S.orderPeek=-1;
-    h+='<div class="order-rail">';
-    for(i=0;i<S.orders.length;i++){
-      var q=S.orders[i],rr=orderReward(q);
-      h+='<button class="order-side-pill'+(S.orderPeek===i?' active':'')+'" data-order-peek="'+i+'" aria-expanded="'+(S.orderPeek===i?'true':'false')+'">'+portrait(q.g)+'<b>'+GODS[q.g].n+'</b><div class="order-mini-items">'+q.items.slice(0,3).map(function(it){return '<span class="om">'+icon(it.c,it.t)+'</span>'}).join('')+'</div><span class="coinmini">'+rr.coins+'</span></button>';
-    }
-    if(S.orderPeek>=0){
-      o=S.orders[S.orderPeek];g=GODS[o.g];rw=orderReward(o);pend=o.items.filter(function(it){return !it.done});
-      var isActive=S.orderPeek===0, sources=orderSourceNames(o), tag2=o.kind==='divine'?'<span class="tag div">Divine</span>':(o.kind==='combo'?'<span class="tag">Multi</span>':'');
-      h+='<div class="order-side-card'+(o.kind==='divine'?' divine':'')+'">';
-      h+='<div class="order-side-head"><div>'+portrait(o.g)+'</div><div><b>'+g.n+'</b><small>'+(isActive?'Active order':'Queued order')+'</small></div><button class="order-side-close" data-order-close="1">×</button></div>';
-      h+='<div class="reqs">';
-      o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+icon(it.c,it.t)+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
-      h+='</div>';
-      h+='<div class="order-side-reward"><span>'+COIN+rw.coins+'</span><span>+'+rw.xp+' XP</span>'+(o.kind==='divine'?'<span>Rare</span>':'')+'</div>';
-      h+='<div class="order-sources"><span class="label">Generator</span><div class="source-row">'+sources.map(function(n){return '<span class="src-chip">'+esc(n)+'</span>'}).join('')+'</div></div>';
-      h+='<button class="order-story-toggle btn alt sm" data-order-story="1">'+(orderStoryOpen?'Hide line':'Hear '+esc(g.n))+'</button>'+(orderStoryOpen?'<p class="say">'+(tag2?tag2+' ':'')+g.say[o.l].replace('{i}',listNames(pend.length?pend:o.items))+'</p>':'');
-      if(isActive){
-        h+='<div class="btns"><button class="btn alt sm" id="swap"'+(S.coins<10||S.tutorial<4?' disabled':'')+'>Swap '+COIN+'10</button><button class="btn" id="deliver"'+(m.length?'':' disabled')+'>'+(m.length?'Deliver':'Build it first')+'</button></div>';
-      }else h+='<div class="order-note">Queued next. Finish the active order first.</div>';
-      h+='</div>';
-    }
-    h+='</div>';
-    $('#orders').innerHTML=h;orderFx=false;requestAnimationFrame(fitMobileBoard);return;
+    var sources=orderSourceNames(o),tag=o.kind==='divine'?' · Divine request':'',line=g.say[o.l].replace('{i}',listNames(pend.length?pend:o.items));
+    h+='<div class="single-mobile-order" data-drop="order">';
+    h+='<div class="smo-person">'+portrait(o.g)+'<div class="smo-identity"><b>'+esc(g.n)+'</b><small>ORDER'+tag+'</small></div><div class="smo-pay"><strong>'+COIN+rw.coins+'</strong><small>+'+rw.xp+' XP</small></div></div>';
+    h+='<p class="smo-line">'+esc(line)+'</p>';
+    h+='<div class="smo-bottom"><div class="smo-items">';
+    o.items.forEach(function(it){h+='<span class="smo-item'+(it.done?' done':'')+'" title="'+esc(tierName(it.c,it.t))+'">'+icon(it.c,it.t)+(it.done?TICK:'')+'</span>'});
+    h+='</div><div class="smo-actions"><button class="btn alt sm" id="swap"'+(S.coins<10||S.tutorial<4?' disabled':'')+'>Swap '+COIN+'10</button><button class="btn sm" id="deliver"'+(m.length?'':' disabled')+'>'+(m.length?'Deliver':'Build')+'</button></div></div>';
+    h+='<div class="smo-source">Made by: '+sources.map(function(n){return '<b>'+esc(n)+'</b>'}).join(' · ')+'</div>';
+    h+='</div>';$('#orders').innerHTML=h;orderFx=false;requestAnimationFrame(fitMobileBoard);return;
   }
   var tag=o.kind==='divine'?'<span class="tag div">Divine request</span>':(o.kind==='combo'?'<span class="tag">Combo order</span>':'');
   h+='<div class="order-active'+(o.kind==='divine'?' divine':'')+(orderFx?' enter':'')+'" data-drop="order">';
