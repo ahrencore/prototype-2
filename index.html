@@ -209,6 +209,64 @@
   .dg-win{padding:12px}.dg-win-card{padding:12px;gap:8px}.dg-win-face .por{width:64px;height:64px}.dg-win-copy h3{font-size:24px}.dg-win-copy p{font-size:13px}.dg-win-actions .btn{min-height:34px}
 }
 </style>
+
+<style id="v18-real-mobile">
+@media(max-width:899px){
+ /* Screen chrome stays out of gameplay */
+ .app{gap:5px;padding:5px 7px calc(57px + env(safe-area-inset-bottom,0px))}
+ .top{min-height:53px;height:53px}.mebtn{width:49px!important;height:49px!important}.mebtn::after{right:-2px;bottom:-1px;min-width:16px;width:16px;height:16px;font-size:8px}
+ .stats .pill{min-height:33px;padding:3px 5px;font-size:10px}.stats .pill .mi{width:13px;height:13px}
+ .tabs{padding:4px 6px calc(4px + env(safe-area-inset-bottom,0px))}.tabs .tab{min-height:43px;border-radius:10px;font-size:11px}
+ .mobile-screen-header{min-height:30px;padding:0 4px 2px;margin:0;font-size:14px}.mobile-back{padding:4px 8px;font-size:11px;border-radius:9px}.mobile-screen-header #mobileScreenTitle{font-size:14px}
+ .side #sideBody{padding:7px!important}
+ .side #sideBody.divine-active{display:block!important;overflow-y:auto!important;overscroll-behavior:contain}
+ .side #sideBody.divine-active .dg-game{height:auto;min-height:100%;display:flex;flex-direction:column;align-items:stretch;gap:6px;overflow:visible}
+ .dg-game .dg-return{align-self:flex-start;display:flex;align-items:center;background:none;border:0;color:var(--soft);font-size:12px;font-weight:800;padding:2px 4px;min-height:20px}
+ .dg-game .h2{font-size:17px;line-height:1.1;margin:0}
+ .dg-grid-note{font-size:10px;line-height:1.15}
+ .dg-game .dg-info{font-size:10px}
+ .dg-board.sudoku{width:min(100%,calc((100dvh - 330px)*1))!important;max-width:370px;flex-shrink:1}
+ .dg-board.sudoku .dg-cell .por{max-height:100%;width:90%;height:90%}
+ .dg-num.sudoku-faces{grid-template-columns:repeat(9,minmax(0,1fr));gap:3px}
+ .dg-num.sudoku-faces button{min-height:48px;padding:3px 0}.dg-num.sudoku-faces .por{width:25px;height:25px}.dg-num.sudoku-faces .dg-rem{font-size:8px}
+ .dg-board.tiles-stack{width:min(100%,350px)!important;height:clamp(205px,36dvh,315px)!important;flex-shrink:1}
+ .dg-board.sort-tubes{min-height:clamp(150px,27dvh,218px)!important;padding:10px 5px!important}
+ .dg-tube{min-height:140px!important;padding:6px 2px 12px!important}.dg-tube .por{height:30px!important}
+ .dg-tray{padding:3px!important}.dg-tray .dg-cell{aspect-ratio:1}
+ .dg-controls{gap:5px}.dg-controls .btn{font-size:11px;min-height:29px;padding:4px 7px}
+ /* Intro and question art scale to a fixed bounded space */
+ .dg-trivia-wrap{overflow:visible!important;display:flex;flex-direction:column;gap:7px;min-height:0}
+ .dg-trivia-card{gap:8px;padding:10px;border-width:2px;border-radius:15px;min-width:0;overflow:hidden}
+ .dg-trivia-portraits{display:flex;align-items:center;justify-content:center;gap:6px;height:68px!important;min-height:68px;max-height:68px;overflow:hidden}
+ .dg-trivia-portraits>.por{flex:0 0 60px;width:60px!important;height:60px!important;max-width:60px!important;max-height:60px!important}
+ .dg-trivia-portraits svg{max-width:100%!important;max-height:100%!important}
+ .dg-trivia-q{font-size:clamp(16px,4.5vw,21px);line-height:1.12}
+ .dg-trivia-card-art{width:66px;height:66px;padding:4px;border-radius:13px}.dg-trivia-card-art .por{width:100%;height:100%}
+ .dg-trivia-opt{padding:7px 9px;border-radius:10px;min-height:40px;gap:7px;font-size:13px}.dg-trivia-opt b{width:23px;height:23px;font-size:11px}
+ .dg-trivia-grid{grid-template-columns:1fr}.dg-trivia-mini{padding:7px 9px}.dg-trivia-mini b{font-size:14px}.dg-trivia-mini small{font-size:11px}
+ .dg-trivia-card .dg-controls{justify-content:center}
+ .dg-trivia-card .dg-controls .btn{flex:1;min-width:0;font-size:11px;padding:6px}
+ /* Orders: no overlap, no clipped content. Requested objects take priority */
+ .order-detail{display:flex!important;flex-direction:column!important;gap:5px!important;top:calc(64px + env(safe-area-inset-top,0px))!important;left:7px!important;right:7px!important;padding:7px!important;max-height:min(29dvh,174px)!important;overflow-y:auto!important;box-sizing:border-box;z-index:115}
+ .order-detail>*{min-width:0!important;flex:none!important}
+ .order-detail-head{display:flex!important;align-items:center;gap:6px;min-height:29px}.order-detail-head>div:first-child{width:30px;flex:none}.order-detail-head .por{width:30px!important;height:30px!important}.order-head-copy{flex:1;min-width:0}.order-head-copy b{font-size:15px!important}.order-head-copy small{font-size:9px}.order-close{flex:none;font-size:10px}
+ .order-dialogue-row{display:flex;flex-direction:column;gap:2px;min-width:0}.order-story-toggle{align-self:flex-start;background:var(--panel);color:var(--soft);border:1px solid var(--slot-edge);border-radius:999px;padding:2px 8px;font-size:10px;font-weight:800}.order-dialogue-row .say{font-size:10px!important;line-height:1.18!important;display:block!important;white-space:normal;overflow:visible!important}
+ .order-detail .reqs{display:flex;align-items:center;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:6px;min-height:33px}.order-detail .req{flex:0 0 34px!important;width:34px!important}.order-detail .mini{width:32px!important;height:32px!important;border-radius:8px}.order-detail .mini .ico{width:25px!important;height:25px!important}
+ .order-sources{display:flex!important;align-items:center;gap:6px;flex-wrap:nowrap;min-height:20px;overflow-x:auto}.order-sources .label{flex:none;font-size:9px}.order-sources .source-row{flex-wrap:nowrap;gap:4px}.order-sources .src-chip{white-space:nowrap;font-size:9px;padding:2px 6px;border-width:1px}
+ .order-detail .act{display:flex!important;align-items:center;justify-content:space-between;gap:5px;min-height:27px;flex-wrap:wrap}.order-detail .rw{flex-wrap:nowrap;gap:4px}.order-detail .rw>span{font-size:10px;padding:3px 5px}.order-detail .btns{flex-wrap:nowrap}.order-detail .btn,.order-detail .btn.sm{min-height:24px!important;padding:2px 6px!important;font-size:10px!important}
+ .play{gap:3px}.boardwrap{min-height:0}.board{max-height:100%!important}
+}
+@media(max-width:375px){
+ .dg-trivia-portraits{height:53px!important;min-height:53px;max-height:53px}.dg-trivia-portraits>.por{flex-basis:48px;width:48px!important;height:48px!important}
+ .dg-board.tiles-stack{height:clamp(190px,32dvh,260px)!important}
+ .dg-board.sudoku{width:min(100%,calc(100dvh - 360px))!important}
+ .dg-trivia-q{font-size:16px}
+}
+@media(max-height:700px) and (max-width:899px){
+ .dg-trivia-portraits{height:45px!important;min-height:45px;max-height:45px}.dg-trivia-portraits>.por{flex-basis:43px;width:43px!important;height:43px!important}
+ .dg-board.tiles-stack{height:200px!important}.dg-board.sudoku{width:min(100%,calc(100dvh - 360px))!important}.dg-tube{min-height:120px!important}
+}
+</style>
 </head><body>
 <title>Olympus Merge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1780,6 +1838,7 @@ function updateEnergyUI(){
 function mobileLayout(){return window.matchMedia&&window.matchMedia('(max-width: 899px)').matches}
 function uniq(a){return a.filter(function(v,i){return a.indexOf(v)===i})}
 function orderSourceNames(o){return uniq(o.items.map(function(it){return CH[it.c].name}))}
+var orderStoryOpen=false;
 function renderOrders(){
   var o=S.orders[0],g=GODS[o.g],rw=orderReward(o),m=matchList(),pend=o.items.filter(function(it){return !it.done}),h='',i;
   if(mobileLayout()){
@@ -1796,7 +1855,7 @@ function renderOrders(){
     var isActive=S.orderPeek===0, sources=orderSourceNames(o), tag2=o.kind==='divine'?'<span class="tag div">Divine request</span>':(o.kind==='combo'?'<span class="tag">Combo order</span>':'');
     h+='<div class="order-detail'+(o.kind==='divine'?' divine':'')+'">';
     h+='<div class="order-detail-head"><div>'+portrait(o.g)+'</div><div class="order-head-copy"><b>'+g.n+'</b><small>'+(isActive?'Active order':'Queued order')+'</small></div><button class="order-close" data-order-close="1">Close</button></div>';
-    h+='<p class="say">'+(tag2?tag2+' ':'')+g.say[o.l].replace('{i}',listNames(pend.length?pend:o.items))+'</p>';
+    h+='<div class="order-dialogue-row"><button class="order-story-toggle" data-order-story="1">'+(orderStoryOpen?'Hide dialogue':'Hear '+esc(g.n))+'</button>'+(orderStoryOpen?'<p class="say">'+(tag2?tag2+' ':'')+g.say[o.l].replace('{i}',listNames(pend.length?pend:o.items))+'</p>':'')+'</div>';
     h+='<div class="reqs">';
     o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+icon(it.c,it.t)+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
     h+='</div>';
@@ -2214,22 +2273,22 @@ function dgTriviaEnd(){var g=DG.trivia;if(!g||g.done)return;
 }
 function dgTriviaBoards(){return '<div class="dg-trivia-boards"><div class="dg-trivia-grid"><div class="dg-trivia-mini"><b>Personal Best</b><small>Most correct in one completed session</small><span>'+((DG.triviaBest&&DG.triviaBest.overall)||0)+' correct</span></div></div></div>'}
 function dgGameView(){
- var tab=DG.tab,g=DG[tab],h='<div class="dg-game"><button class="btn alt sm" data-dg="home">← Divine Games</button>';
+ var tab=DG.tab,g=DG[tab],h='<div class="dg-game"><button class="dg-return" data-dg="home" aria-label="Return to Divine Games">‹ Games</button>';
  if(tab==='tiles'){
-  h+='<h3 class="h2">Tiles of Olympus · Level '+((DG.history.tiles||0)+1)+'</h3><p class="dg-grid-note">Only uncovered white tokens can be picked. Match 3, manage your seven-slot tray, and clear the piles layered across Mount Olympus.</p>';
+  h+='<h3 class="h2">Tiles of Olympus · Level '+((DG.history.tiles||0)+1)+'</h3>';
   if(!g)return h+'<button class="btn" data-dg-action="new">Next level</button></div>';
   h+='<div class="dg-board tiles-stack">';g.board.forEach(function(it,i){if(!it)return;var covered=dgTileCovered(i);h+='<button class="dg-cell '+(covered?'covered':'available')+'" data-dg-tile="'+i+'" style="left:'+it.x+'%;top:'+it.y+'%;--layer:'+it.layer+'" '+(covered?'disabled':'')+' aria-label="'+esc(tierName(it.c,it.t))+'">'+dgTileToken(it)+'</button>'});h+='</div><div class="dg-tray">';
   for(var i=0;i<7;i++)h+='<div class="dg-cell">'+(g.tray[i]?dgTileToken(g.tray[i]):'')+'</div>';
   h+='</div>'+dgControls('tiles')+'<button class="btn alt sm" data-dg-action="restart">Restart level</button>';
  }else if(tab==='sort'){
-  h+='<h3 class="h2">Gods Sort · Level '+((DG.history.sort||0)+1)+'</h3><p class="dg-grid-note">Tap the source shelf, then the destination. Only empty shelves or matching top gods can receive a move, and matching gods move together in one pour.</p>';
+  h+='<h3 class="h2">Gods Sort · Level '+((DG.history.sort||0)+1)+'</h3>';
   if(!g)return h+'<button class="btn" data-dg-action="new">Next level</button></div>';
   h+='<div class="dg-board sort-tubes">';g.cols.forEach(function(col,i){h+='<button class="dg-tube '+(g.pick===i?'pick':'')+'" data-dg-col="'+i+'" aria-label="Cup '+(i+1)+'">';if(!col.length)h+='<span class="empty-tube">·</span>';col.forEach(function(t){h+=art(dgSudokuGodId((t%DG_SUDOKU_GODS.length)+1))});h+='<span class="dg-tube-index">'+(i+1)+'</span></button>'});h+='</div><div style="height:20px"></div>'+dgControls('sort')+'<button class="btn alt sm" data-dg-action="restart">Restart level</button>';
  }else if(tab==='sudoku'){
   h+='<h3 class="h2">Sudoku of the Gods</h3>';
   h+='<div class="dg-sudoku-toolbar"><label>Difficulty <select class="dg-select" data-dg-difficulty="1">';['easy','medium','hard','extreme'].forEach(function(d){h+='<option value="'+d+'" '+((g?g.difficulty:dgDifficultyChoice)===d?'selected':'')+'>'+d.charAt(0).toUpperCase()+d.slice(1)+'</option>'});h+='</select></label><b>'+(g?'Mistakes '+(g.mistakes||0)+'/3':'Choose a challenge')+'</b></div>';
   if(!g){h+='<p class="dg-grid-note">Nine gods replace the usual digits. Pick a difficulty, play solo or challenge the computer, and keep mistakes to three or fewer.</p><button class="btn" data-dg-action="solo">Play solo</button> <button class="btn alt" data-dg-action="battle">Challenge computer · win coins</button>';return h+'</div>'}
-  h+='<p class="dg-grid-note">'+(g.mode==='battle'?'Race the computer to finish first.':'Ares sketched the board. Athena fixed the rules.')+'</p><div class="dg-board sudoku">';
+  h+='<div class="dg-board sudoku">';
   var sel=g.selected,sn=sel===null?0:g.cells[sel];for(var k=0;k<81;k++){
    var row=Math.floor(k/9),col=k%9,peer=sel!==null&&(Math.floor(sel/9)===row||sel%9===col||(Math.floor(sel/27)===Math.floor(k/27)&&Math.floor((sel%9)/3)===Math.floor(col/3)));
    h+='<button class="dg-cell '+(g.given[k]?'fixed ':'')+(peer?'peer ':'')+(sn&&g.cells[k]===sn?'same ':'')+(sel===k?'pick ':'')+'" data-dg-square="'+k+'" aria-label="'+(g.cells[k]?DG_SUDOKU_GODS[g.cells[k]-1]:'Empty cell')+'">'+dgSudokuFace(g.cells[k])+'</button>';
@@ -2237,7 +2296,7 @@ function dgGameView(){
   h+='</div><div class="dg-num sudoku-faces">';for(var n=1;n<=9;n++){var placed=dgSudokuPlaced(g,n);if(placed>=9)continue;h+='<button data-dg-number="'+n+'">'+dgSudokuFace(n)+'<span class="dg-rem">'+(9-placed)+' left</span></button>'}h+='</div><div class="dg-controls"><button class="btn alt sm" data-dg-number="0">Erase</button><button class="btn alt sm" data-dg-action="restart">Restart puzzle</button></div>'+dgControls('sudoku');
  }else if(tab==='trivia'){
   h+='<h3 class="h2">Gods Trivia</h3>';
-  if(!g){h+='<div class="dg-trivia-wrap"><div class="dg-trivia-card"><div class="dg-trivia-head" style="justify-content:center"><div class="dg-trivia-meta"><span class="dg-badge">Random mythology quiz</span></div></div><div class="dg-card-grid" style="grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">'+art(idOf('Zeus')||'g0')+art(idOf('Athena')||'g0')+art(idOf('Hermes')||'g0')+art(idOf('Apollo')||'g0')+'</div><p class="dg-trivia-q">The gods are waiting with a fresh stack of myth questions.</p><p class="sub" style="text-align:center">Keep answering as long as you like. Your final score is saved when you end the session.</p><div class="dg-controls" style="justify-content:center"><button class="btn" data-dg-action="trivia-start">By thunder, I am ready!</button><button class="btn alt" data-dg="home">No, send me back to Olympus</button></div></div>'+dgTriviaBoards()+'</div>';return h+'</div>'}
+  if(!g){h+='<div class="dg-trivia-wrap"><div class="dg-trivia-card"><div class="dg-trivia-head" style="justify-content:center"><div class="dg-trivia-meta"><span class="dg-badge">Random mythology quiz</span></div></div><div class="dg-trivia-portraits">'+art(idOf('Zeus')||'g0')+art(idOf('Athena')||'g0')+art(idOf('Hermes')||'g0')+art(idOf('Apollo')||'g0')+'</div><p class="dg-trivia-q">Ready to challenge the gods?</p><p class="sub" style="text-align:center">Answer as many as you like. End your session to save your score.</p><div class="dg-controls" style="justify-content:center"><button class="btn" data-dg-action="trivia-start">By thunder, I am ready!</button><button class="btn alt" data-dg="home">No, send me back to Olympus</button></div></div>'+dgTriviaBoards()+'</div>';return h+'</div>'}
   if(g.done){h+='<div class="dg-trivia-wrap"><div class="dg-trivia-card"><div class="dg-trivia-card-art">'+dgTriviaArt('Athena')+'</div><p class="dg-trivia-q">Session complete: '+g.summary.score+' correct out of '+g.summary.total+'</p><p class="sub">You earned '+g.summary.coins+' coins and '+g.summary.pts+' Divine Games points.</p><div class="dg-controls"><button class="btn" data-dg-action="trivia-start">Ask me another!</button><button class="btn alt" data-dg="home">Back to Divine Games</button></div></div>'+dgTriviaBoards()+'</div>';return h+'</div>'}
   var q=g.current;h+='<div class="dg-trivia-wrap"><div class="dg-trivia-head"><div class="dg-trivia-meta"><span class="dg-badge">Question '+g.at+'</span></div><b>'+g.correct+' correct</b></div><div class="dg-trivia-card"><div class="dg-trivia-card-art">'+dgTriviaArt(q.art)+'</div><p class="dg-trivia-q">'+esc(q.q)+'</p><div class="dg-trivia-opts">';
   ['A','B','C'].forEach(function(lbl,idx){var state='';if(g.choice>=0){if(q.o[idx]===q.a)state=' correct';else if(g.choice===idx)state=' wrong'}h+='<button class="dg-trivia-opt'+state+'" data-dg-choice="'+idx+'" '+(g.choice>=0?'disabled':'')+'><b>'+lbl+'</b><span>'+esc(q.o[idx])+'</span></button>'});
@@ -2268,9 +2327,9 @@ function dgLeaderTease(){
   return '<section class="dg-leader"><div class="dg-leader-head"><h3>Leaderboards of All Games</h3><span class="dg-badge">Olympian legends</span></div><p class="sub">Player levels and future competitive rankings belong here. Online worldwide scores require a connected server.</p><div class="dg-leader-row"><div class="dg-leader-card">'+avatar(idOf('Hermes')||'g0','plain')+'<b>Fastest Solver</b><small>Oracle\'s Sudoku races and clever rivals.</small></div><div class="dg-leader-card">'+avatar(idOf('Athena')||'g0','olive')+'<b>Highest Level</b><small>Main-game progress across Olympus Merge.</small></div><div class="dg-leader-card">'+avatar(idOf('Dionysus')||'g0','muse')+'<b>Mini-Game Mischief</b><small>Sort, tiles, and all the funny side challenges.</small></div></div></section>';
 }
 
-function sideDivine(){var h='<h2 class="h">Divine Games</h2><p class="sub">Four mythology mini-games in the Olympian arcade. Tap the illustration you want and jump straight in.</p>';
- if(DG.recent)h+='<p class="dg-info" role="status">'+esc(DG.recent)+'</p>';
- if(DG.tab!=='home')return h+dgGameView();
+function sideDivine(){var h='';
+ if(DG.tab!=='home')return dgGameView();
+ h+='<h2 class="h">Divine Games</h2><p class="sub">Pick a game to play.</p>';
  h+='<div class="dg-home"><div class="dg-card-grid">';
  h+=dgHomeCard('sudoku','Sudoku of the Gods','Play sudoku with nine Olympian faces instead of numbers.','Athena approved');
  h+=dgHomeCard('sort','Gods Sort','Pour matching gods between cups and sort every set cleanly.','tiny shelves');
@@ -2372,6 +2431,7 @@ function onUp(e){
 function onCancel(){endDrag()}
 
 board.addEventListener('pointerdown',function(e){
+  if(mobileLayout()&&S.orderPeek>=0){S.orderPeek=-1;orderStoryOpen=false;renderOrders();}
   if(e.button>0)return;
   var slot=e.target.closest('.slot');if(!slot)return;
   var i=+slot.dataset.i;if(!S.board[i])return;
@@ -2395,8 +2455,9 @@ $('#loginBanner').addEventListener('click',function(e){if(e.target.id==='claimLo
 $('#tools').addEventListener('click',function(e){if(e.target.closest('#grow'))growBoard()});
 $('#orders').addEventListener('click',function(e){
   var p=e.target.closest('[data-order-peek]');
-  if(p){var idx=+p.dataset.orderPeek;S.orderPeek=S.orderPeek===idx?-1:idx;save();renderOrders();return}
-  if(e.target.closest('[data-order-close]')){S.orderPeek=-1;save();renderOrders();return}
+  if(p){var idx=+p.dataset.orderPeek;S.orderPeek=S.orderPeek===idx?-1:idx;orderStoryOpen=false;save();renderOrders();return}
+  if(e.target.closest('[data-order-close]')){S.orderPeek=-1;orderStoryOpen=false;save();renderOrders();return}
+  if(e.target.closest('[data-order-story]')){orderStoryOpen=!orderStoryOpen;renderOrders();return}
   if(e.target.closest('#deliver')){var m=matchList();if(m.length)applyDelivery(m)}
   else if(e.target.closest('#swap'))swapOrder();
 });
