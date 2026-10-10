@@ -292,6 +292,18 @@
   .mobile-order-main{grid-template-columns:50px minmax(0,1fr) auto;gap:6px}.mobile-order-god .por{width:48px;height:48px}.mobile-order-god b{font-size:11px}.mobile-order-copy .say{font-size:11px}.mobile-order-reward span{font-size:10px;min-width:56px;padding:4px 7px}.mobile-order-items .req{width:42px}.mobile-order-items .mini{width:36px;height:36px}.mobile-order-actions .btn,.mobile-order-actions .btn.sm{font-size:11px;padding:4px 8px}
 }
 </style>
+
+<style id="v22-polish">
+.storemini{position:relative;display:grid;place-items:center;min-width:42px;min-height:42px;padding:0 8px;border:2px solid var(--edge);border-radius:14px;background:var(--panel);box-shadow:3px 3px 0 var(--shadow);cursor:pointer}.storemini .mi{width:22px;height:22px}.storemini #storeDot{position:absolute;right:4px;top:4px;width:10px;height:10px;border-radius:50%;background:#d33;border:2px solid var(--panel)}
+@media(max-width:899px){
+  .mobile-screen-header{display:none!important}
+  .storemini{min-width:40px;min-height:40px;border-radius:12px;box-shadow:none}.storemini .mi{width:20px;height:20px}
+  .mobile-order-card{padding:8px 10px 8px!important}.mobile-order-main{grid-template-columns:54px minmax(0,1fr) auto!important}.mobile-order-god .por{width:50px!important;height:50px!important}.mobile-order-god b{font-size:11px!important}.mobile-order-copy .say{font-size:12px!important;line-height:1.18!important;-webkit-line-clamp:2}.mobile-order-gen{font-size:10px!important}.mobile-order-reward span{font-size:10px!important;padding:3px 7px!important}.mobile-order-bottom{align-items:center!important}.mobile-order-items{gap:5px!important}.mobile-order-items .req{width:44px!important}.mobile-order-items .mini{width:38px!important;height:38px!important}.mobile-order-items .mini .ico{width:31px!important;height:31px!important}.mobile-order-actions .btn,.mobile-order-actions .btn.sm{min-height:28px!important;font-size:11px!important;padding:3px 8px!important}
+  .item.top .ico,.mini .ico.topfix{transform:scale(1.16);transform-origin:center;overflow:visible}
+  .dg-board.sudoku{gap:0!important;border:3px solid #283618!important;border-radius:12px!important;overflow:hidden!important;background:#283618!important;width:min(100%,350px)!important}.dg-board.sudoku .dg-cell{border:1px solid #b8ab8d!important;border-radius:0!important;background:var(--tile)!important}.dg-board.sudoku .dg-cell:nth-child(9n+3),.dg-board.sudoku .dg-cell:nth-child(9n+6){border-right:3px solid #283618!important}.dg-board.sudoku .dg-cell:nth-child(n+19):nth-child(-n+27),.dg-board.sudoku .dg-cell:nth-child(n+46):nth-child(-n+54){border-bottom:3px solid #283618!important}
+  .dg-card-art.triviafaces{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:center;justify-items:center}.dg-card-art.triviafaces .triv-face{display:grid;place-items:center;width:100%;padding:8px;border:2px solid var(--slot-edge);border-radius:18px;background:#f7efe0}.dg-card-art.triviafaces .por{width:58px!important;height:58px!important}.dg-card-art.triviafaces .mini-crown{font-size:11px;font-weight:800;color:var(--soft);text-align:center;margin-top:4px}
+}
+</style>
 </head><body>
 <title>Olympus Merge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -644,6 +656,7 @@ button{font:inherit;color:inherit}
       <div class="pill" id="coins"><svg class="mi" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" class="s gold"/><circle cx="10" cy="10" r="4.5" class="l" style="stroke-width:1.4"/></svg><span id="coinv">0</span></div>
       <div class="pill" id="gems"><svg class="mi" viewBox="0 0 20 20"><path class="s" style="fill:var(--teal)" d="M10 2L17 8L10 18L3 8Z"/><path class="l" d="M3 8H17M7 8L10 2L13 8M7 8L10 18L13 8" style="stroke-width:1.1"/></svg><span id="gemv">0</span></div>
       <div class="pill" id="energy"><svg class="mi" viewBox="0 0 20 20"><path class="s gold" d="M11 1 L4 11 H9 L8 19 L16 8 H11 Z"/></svg><span id="energyv">100/100</span><small id="energyt"></small></div>
+      <button class="storemini" id="storeQuick" aria-label="Open store"><svg class="mi" viewBox="0 0 20 20"><path class="s" style="fill:#f3d28d" d="M3 7h14v10H3z"/><path class="s" style="fill:#e7a65f" d="M2 7l2-4h12l2 4z"/><path class="s" style="fill:#a8d07f" d="M7 10h6v7H7z"/><path class="l" d="M2 7h16M4 3h12M3 7v10h14V7M7 10h6v7H7" style="stroke-width:1.1"/></svg><i id="storeDot" hidden></i></button>
     </div>
     
   </header>
@@ -1718,24 +1731,29 @@ function saveName(v){
 }
 function setAv(id){if(!ownsAv(id)){toast('Find that card in the album to use this picture.');return}S.profile.av=id;save();pushScore(true);render();renderSide(true)}
 function setFrame(id){if(!ownsFrame(id)){var fr=FR[id];toast(fr&&fr.lvl?'That frame unlocks at level '+fr.lvl+'.':'Earn it: '+(fr?fr.how:'')+'.');return}S.profile.frame=id;save();pushScore(true);render();renderSide(true)}
+function profileOpenEdit(){profileEdit=true;profileDraft={name:S.profile.name,av:S.profile.av,frame:S.profile.frame};renderSide(true)}
+function profilePickAv(id){if(!profileDraft)profileOpenEdit();if(!ownsAv(id)){toast('Find that card in the album to use this picture.');return}profileDraft.av=id;renderSide(true)}
+function profilePickFrame(id){if(!profileDraft)profileOpenEdit();if(!ownsFrame(id)){var fr=FR[id];toast(fr&&fr.lvl?'That frame unlocks at level '+fr.lvl+'.':'Earn it: '+(fr?fr.how:'')+'.');return}profileDraft.frame=id;renderSide(true)}
+function profileSave(){var src=profileDraft||S.profile,n=cleanName((document.getElementById('editNameIn')||{}).value!==undefined?document.getElementById('editNameIn').value:src.name);S.profile={name:n,av:src.av,frame:src.frame};profileEdit=false;profileDraft=null;save();pushScore(true);render();renderSide(true);toast('Profile saved. The gods approve the glow-up.')}
+function profileCancel(){profileEdit=false;profileDraft=null;renderSide(true)}
 function sideMe(){
-  var own=CARDS.filter(function(c){return S.cards[c.id]}).length,sets=Object.keys(S.sets).length,h='',k;
-  h+='<h2 class="h">Your profile</h2><button class="btn alt sm" id="profileStore" type="button">Open Store</button>';
-  h+='<div class="prof">'+avatar(S.profile.av,S.profile.frame)+'<div style="display:grid;gap:6px;min-width:0"><b style="font-family:var(--display);font-weight:400;font-size:20px;overflow-wrap:anywhere">'+esc(myName())+'</b><span class="sub" style="margin:0">'+esc(titleFor(S.level))+' · level '+S.level+'</span></div></div>';
-  h+='<form class="namerow" id="nameForm"><label class="label" for="nameIn" style="flex:none">Name</label><input id="nameIn" maxlength="16" autocomplete="off" value="'+esc(S.profile.name)+'" placeholder="Your player name"><button class="btn sm" type="submit" id="nameSaveBtn">Save</button></form>';
+  var own=CARDS.filter(function(c){return S.cards[c.id]}).length,sets=Object.keys(S.sets).length,h='',src=profileEdit?(profileDraft||S.profile):S.profile;
+  h+='<h2 class="h">Your profile</h2>';
+  h+='<div class="prof">'+avatar(src.av,src.frame)+'<div style="display:grid;gap:6px;min-width:0"><b style="font-family:var(--display);font-weight:400;font-size:20px;overflow-wrap:anywhere">'+esc(src.name||'Mortal')+'</b><span class="sub" style="margin:0">'+esc(titleFor(S.level))+' · level '+S.level+'</span></div></div>';
   h+='<div class="stats-row"><div class="stat"><b>'+S.stats.orders+'</b><span>Orders delivered</span></div><div class="stat"><b>'+S.stats.merges+'</b><span>Merges</span></div><div class="stat"><b>'+own+'/'+CARDS.length+'</b><span>Cards</span></div><div class="stat"><b>'+sets+'/'+SETS.length+'</b><span>Sets done</span></div></div>';
+  if(!profileEdit){
+    h+='<div class="sect"><h3 class="h2">Style</h3><p class="sub" style="margin:0">Change your name, portrait and frame whenever you want.</p><div class="btns" style="margin-top:10px"><button class="btn" id="editProfileBtn" type="button">Edit Profile</button></div></div>';
+    return h;
+  }
+  h+='<div class="sect"><h3 class="h2">Edit profile</h3><div class="namerow"><label class="label" for="editNameIn" style="flex:none">Name</label><input id="editNameIn" maxlength="16" autocomplete="off" value="'+esc(src.name)+'" placeholder="Your player name"></div></div>';
   h+='<div class="sect"><h3 class="h2">Picture</h3><p class="sub" style="margin:0">All gods and heroes are yours. Legends join once you find their card.</p><div class="avgrid">';
-  Object.keys(CHAR).forEach(function(id){
-    var has=ownsAv(id);
-    h+='<button type="button" class="opt'+(has?'':' lock')+'" data-av="'+id+'" aria-pressed="'+(S.profile.av===id)+'" aria-label="'+esc(CHAR[id].n)+(has?'':', locked')+'">'+avatar(id,'plain')+'<small>'+esc(CHAR[id].n)+'</small></button>';
-  });
+  Object.keys(CHAR).forEach(function(id){var has=ownsAv(id);h+='<button type="button" class="opt'+(has?'':' lock')+'" data-edit-av="'+id+'" aria-pressed="'+(src.av===id)+'" aria-label="'+esc(CHAR[id].n)+(has?'':', locked')+'">'+avatar(id,'plain')+'<small>'+esc(CHAR[id].n)+'</small></button>'});
   h+='</div></div>';
   h+='<div class="sect"><h3 class="h2">Frame</h3><p class="sub" style="margin:0">Frames come from levelling up and from events.</p><div class="frgrid">';
-  FRAMES.forEach(function(fr){
-    var has=ownsFrame(fr.id);
-    h+='<button type="button" class="opt'+(has?'':' lock')+'" data-frame="'+fr.id+'" aria-pressed="'+(S.profile.frame===fr.id)+'" aria-label="'+esc(fr.name)+(has?'':', locked')+'">'+avatar(S.profile.av,fr.id)+'<b>'+esc(fr.name)+'</b><small>'+(has?'Yours':(fr.lvl?'Level '+fr.lvl:esc(fr.how)))+'</small></button>';
-  });
-  return h+'</div></div>';
+  FRAMES.forEach(function(fr){var has=ownsFrame(fr.id);h+='<button type="button" class="opt'+(has?'':' lock')+'" data-edit-frame="'+fr.id+'" aria-pressed="'+(src.frame===fr.id)+'" aria-label="'+esc(fr.name)+(has?'':', locked')+'">'+avatar(src.av,fr.id)+'<b>'+esc(fr.name)+'</b><small>'+(has?'Yours':(fr.lvl?'Level '+fr.lvl:esc(fr.how)))+'</small></button>'});
+  h+='</div></div>';
+  h+='<div class="btns" style="justify-content:flex-end"><button class="btn alt" id="cancelProfileBtn" type="button">Cancel</button><button class="btn" id="saveProfileBtn" type="button">Save</button></div>';
+  return h;
 }
 
 /* ---------- Divine Games (shared leaderboard through db) ---------- */
@@ -1850,6 +1868,7 @@ function renderStats(){
   if(sg!==meSig){meSig=sg;$('#meBtn').innerHTML=avatar(S.profile.av,S.profile.frame)}
   $('#meBtn').setAttribute('data-level',S.level);
   $('#whoTitle').textContent=(S.profile.name?S.profile.name+', ':'')+titleFor(S.level);
+  var sd=$('#storeDot'); if(sd) sd.hidden=(S.dailyKey===today());
   updateEnergyUI();
 }
 function updateEnergyUI(){
@@ -1876,7 +1895,7 @@ function renderOrders(){
     h+='</div>';
     h+='<div class="mobile-order-bottom">';
     h+='<div class="mobile-order-items">';
-    o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+icon(it.c,it.t)+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
+    o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+(it.t===MAXT?icon(it.c,it.t).replace('class="ico"','class="ico topfix"'):icon(it.c,it.t))+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
     h+='</div>';
     h+='<div class="mobile-order-actions"><button class="btn alt sm" id="swap"'+(S.coins<10||S.tutorial<4?' disabled':'')+' aria-label="Swap this customer for 10 coins">Swap '+COIN+'10</button><button class="btn" id="deliver"'+(m.length?'':' disabled')+'>'+(m.length?'Deliver'+(m.length>1?' '+m.length:''):'Build it first')+'</button></div>';
     h+='</div></div>';
@@ -1887,7 +1906,7 @@ function renderOrders(){
   h+='<div class="who">'+portrait(o.g)+'<span>'+g.n+'</span></div>';
   h+='<p class="say">'+(tag?tag+' ':'')+g.say[o.l].replace('{i}',listNames(pend.length?pend:o.items))+'</p>';
   h+='<div class="reqs">';
-  o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+icon(it.c,it.t)+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
+  o.items.forEach(function(it){h+='<div class="req'+(it.done?' done':'')+'"><div class="mini" style="--chain:var('+CH[it.c].var+')">'+(it.t===MAXT?icon(it.c,it.t).replace('class="ico"','class="ico topfix"'):icon(it.c,it.t))+(it.done?TICK:'')+'</div><span>'+esc(tierName(it.c,it.t))+'</span></div>'});
   h+='</div>';
   h+='<div class="act"><div class="rw"><span>'+COIN+rw.coins+'</span><span class="xp">+'+rw.xp+' XP</span></div>';
   h+='<div class="btns"><button class="btn alt sm" id="swap"'+(S.coins<10||S.tutorial<4?' disabled':'')+' aria-label="Swap this customer for 10 coins">Swap '+COIN+'10</button>';
@@ -2329,7 +2348,7 @@ function dgPromoArt(game){
   }else if(game==='tiles'){
     h+='<div class="dg-card-art tiles"><div class="tilechip">'+dgTileToken({c:'olive',t:2})+'</div><div class="tilechip">'+dgTileToken({c:'music',t:2})+'</div><div class="tilechip">'+dgTileToken({c:'nectar',t:2})+'</div><div class="tilechip">'+dgTileToken({c:'olive',t:2})+'</div><div class="tilechip">'+dgTileToken({c:'music',t:2})+'</div><div class="tilechip">'+dgTileToken({c:'nectar',t:2})+'</div></div>';
   }else if(game==='trivia'){
-    h+='<div class="dg-card-art tiles"><div class="tilechip">'+art(idOf('Athena')||'g0')+'</div><div class="tilechip" style="grid-column:span 2;padding:8px;border-radius:14px;background:linear-gradient(180deg,#fff6df,#ecd6a7);border:2px solid #8b6a3e"><b style="display:block;font-family:var(--display);font-size:16px;margin-bottom:4px">Q:</b><small>Who is the god of the sea?</small></div><div class="tilechip">'+art(idOf('Poseidon')||'g0')+'</div></div>';
+    h+='<div class="dg-card-art triviafaces"><div class="triv-face">'+art(idOf('Athena')||'g0')+'<div class="mini-crown">Athena</div></div><div class="triv-face">'+art(idOf('Zeus')||'g0')+'<div class="mini-crown">Zeus</div></div><div class="triv-face">'+art(idOf('Poseidon')||'g0')+'<div class="mini-crown">Poseidon</div></div><div class="triv-face">'+art(idOf('Hermes')||'g0')+'<div class="mini-crown">Hermes</div></div></div>';
   }
   return h;
 }
@@ -2474,21 +2493,21 @@ $('#sideBody').addEventListener('change',function(e){if(e.target.matches('[data-
 $('#sideBody').addEventListener('click',function(e){
   if(dgClick(e))return;
   var b;
-  if(e.target.closest('#profileStore')){side='store';syncNav();renderSide(true);return}
-  if(e.target.closest('#nameSaveBtn')){e.preventDefault();var ni=$('#nameIn');if(ni)saveName(ni.value)}
+  if(e.target.closest('#editProfileBtn')){profileOpenEdit();return}
+  if(e.target.closest('#cancelProfileBtn')){profileCancel();return}
+  if(e.target.closest('#saveProfileBtn')){profileSave();return}
+  if((b=e.target.closest('[data-edit-av]'))){profilePickAv(b.dataset.editAv);return}
+  if((b=e.target.closest('[data-edit-frame]'))){profilePickFrame(b.dataset.editFrame);return}
   else if((b=e.target.closest('[data-site]')))upgrade(b.dataset.site);
   else if((b=e.target.closest('[data-buy]')))buy(b.dataset.buy);
   else if((b=e.target.closest('[data-set]')))claimSet(+b.dataset.set);
   else if((b=e.target.closest('[data-album]'))){S.albumOpen=+b.dataset.album;save();renderSide(true)}
   else if(e.target.closest('[data-album-back]')){clearAlbumSetNews(S.albumOpen);S.albumOpen=-1;save();renderSide(true)}
-  else if((b=e.target.closest('[data-av]')))setAv(b.dataset.av);
-  else if((b=e.target.closest('[data-frame]')))setFrame(b.dataset.frame);
   else if(e.target.closest('[data-claim]'))claimRound();
 });
 $('#cardPop').addEventListener('click',function(e){if(e.target.id==='cardPopOk')closeCardPopup(false);else if(e.target.id==='cardPopAlbum')closeCardPopup(true);else if(e.target.id==='cardPop')closeCardPopup(false)});
-$('#sideBody').addEventListener('submit',function(e){
-  if(e.target.id==='nameForm'){e.preventDefault();saveName($('#nameIn').value)}
-});
+$('#sideBody').addEventListener('submit',function(e){e.preventDefault();});
+document.getElementById('storeQuick').addEventListener('click',function(){side='store';view=mobileLayout()?'side':view;syncNav();renderSide(true);});
 
 function fitMobileBoard(){
  if(!window.matchMedia||!window.matchMedia('(max-width:899px)').matches)return;
